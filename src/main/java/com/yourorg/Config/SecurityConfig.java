@@ -12,7 +12,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import com.yourorg.Users.CustomUserDetailsService;
-import com.yourorg.Config.jwtAuthenticationFilter;
+import com.yourorg.Config.JwtAuthenticationFilter;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 
