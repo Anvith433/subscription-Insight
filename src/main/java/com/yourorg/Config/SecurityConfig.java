@@ -4,11 +4,11 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import com.yourorg.Users.CustomUserDetailsService;
@@ -20,8 +20,9 @@ import org.springframework.security.authentication.dao.DaoAuthenticationProvider
 @EnableWebSecurity
 public class SecurityConfig {
 
-    @Autowired 
+      @Autowired 
     private UserDetailsService userDetailsService;
+
 
     @Autowired 
     private JwtAuthenticationFilter jwtAuthFilter;
@@ -33,11 +34,13 @@ public class SecurityConfig {
     public SecurityFilterChain filter (HttpSecurity http) throws Exception{
      http
     .csrf(customizer -> customizer.disable())
-    .authorizeHttpRequests(auth ->auth
+    .authorizeHttpRequests(auth -> auth
+    .requestMatchers("/auth/**").permitAll()
     .requestMatchers("/admin").hasRole("ADMIN")
     .requestMatchers("/user").hasAnyRole("USER", "ADMIN")
-    .anyRequest().authenticated())
-    .httpBasic(Customizer.withDefaults())
+    .anyRequest().authenticated()
+)
+    .formLogin(form -> form.disable())
     .sessionManagement(session ->session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
     )
     .authenticationProvider(authenticationProvider)
@@ -52,8 +55,9 @@ public class SecurityConfig {
         return new BCryptPasswordEncoder();
     }
     
-
-
-    
-    
+   
 }
+
+    
+    
+

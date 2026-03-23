@@ -8,12 +8,8 @@ import org.springframework.stereotype.Service;
 import com.yourorg.Subscriptions.Subscription;
 import com.yourorg.Subscriptions.SubscriptionRepository;
 
+@Service
 public class UserSnapShotService {
-    
-
-    @Service
-public class UsageService {
-
     @Autowired
     private SubscriptionRepository subscriptionRepo;
 
@@ -59,4 +55,4 @@ public class UsageService {
         }
     }
 }
-}
+

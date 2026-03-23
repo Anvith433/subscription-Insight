@@ -1,22 +1,33 @@
 version: "3.9"
 
 services:
-  postgres:
-    image: postgres:17
-    container_name: subscription-postgres
+  mysql:
+    image: mysql:8.0
+    container_name: subscription-mysql
     ports:
-      - "5432:5432"
+      - "3306:3306"
     environment:
-      POSTGRES_DB: subscription_db
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
+      MYSQL_DATABASE: subscription_db
+      MYSQL_USER: postgres      # You can keep 'postgres' as the username, but 'root' is MySQL default
+      MYSQL_PASSWORD: postgres
+      MYSQL_ROOT_PASSWORD: postgres
+      TZ: Asia/Kolkata
     volumes:
-      - pgdata:/var/lib/postgresql/data
+      - mysqldata:/var/lib/mysql
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      # MySQL uses mysqladmin for healthchecks
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-ppostgres"]
       interval: 5s
       timeout: 5s
       retries: 5
 
+      flyway:
+    enabled: true
+    baseline-on-migrate: true
+    repair-on-migrate: true  
+    locations: classpath:db/migration
+    user: ${spring.datasource.username}
+    password: ${spring.datasource.password}
+
 volumes:
-  pgdata:
+  mysqldata:
