@@ -2,7 +2,7 @@ package com.yourorg.UserSnapShot;
 
 import java.time.Instant;
 import java.time.YearMonth;
-
+import com.yourorg.common.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.yourorg.Subscriptions.Subscription;
@@ -49,7 +49,7 @@ public class UserSnapShotService {
             );
 
             snapshot.setLastUsedAt(Instant.now());
-            snapshot.setSource(UsageSource.ANDROID);
+            snapshot.setSource(DataSource.ANDROID);
 
             snapshotRepo.save(snapshot);
         }

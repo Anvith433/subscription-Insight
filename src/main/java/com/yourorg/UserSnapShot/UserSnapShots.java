@@ -3,6 +3,7 @@ import jakarta.persistence.*;
 import java.time.Instant;
 import lombok.*;
 import com.yourorg.Subscriptions.Subscription;
+import com.yourorg.common.DataSource;
 @Entity
 @Table(name="user_snapshots",
     uniqueConstraints = {
@@ -11,9 +12,10 @@ import com.yourorg.Subscriptions.Subscription;
         )
     }
 )
+
+
 @Getter
 @Setter
-@NoArgsConstructor(access=AccessLevel.PROTECTED)
 
 public class UserSnapShots {
 
@@ -37,10 +39,19 @@ public class UserSnapShots {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private UsageSource source;
+    private DataSource source;
 
     @Column(nullable = false, updatable = false)
     private Instant createdAt = Instant.now();
+
+public UserSnapShots(){}
+   
+public UserSnapShots(Subscription subscription, String period, int usageCount, DataSource source) {
+    this.subscription = subscription;
+    this.period = period;
+    this.usageCount = usageCount;
+    this.source = source;
 }
-    
+
+}
 

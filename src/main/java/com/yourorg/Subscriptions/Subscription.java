@@ -164,4 +164,8 @@ public class Subscription {
     public void setUpdatedAt(Instant updatedAt) {
         this.updatedAt = updatedAt;
     }
+   public String getPackageName() {
+        return providerName;
+    }
+    
 }

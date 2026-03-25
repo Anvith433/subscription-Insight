@@ -6,10 +6,8 @@ import java.util.*;
 @Repository
 public interface BillingRecordRepository extends JpaRepository<BillingRecord, Long> {
     Optional<BillingRecord> findByTransactionId(String transactionId);
-    Optional<BillingRecord> findById(long id);
-    BillingRecord save(BillingRecord billingRecord);
-    BillingRecord deleteById(int id);
-    
+    boolean existsBySubscriptionIdAndBillingPeriod(Long subscriptionId, String billingPeriod);
+    List<BillingRecord> findBySubscriptionUserId(Long userId);
 
     
 }

@@ -1,5 +1,4 @@
 package com.yourorg.Recommendation;
-import java.util.*;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;

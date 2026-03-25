@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import java.util.*;
 import com.yourorg.Subscriptions.Subscription;
+import com.yourorg.common.DataSource;
+import java.math.BigDecimal;
 import java.time.Instant;
 
 @Entity
@@ -25,7 +27,7 @@ public class BillingRecord {
 
 
     @Column(name="amount",precision=10, scale=2)
-    private  Double amount;
+    private BigDecimal amount;
 
     @ManyToOne(fetch=FetchType.LAZY, optional=false)
     @JoinColumn(name="subscription_id", nullable=false)
@@ -35,7 +37,7 @@ public class BillingRecord {
     private String currency;
 
     @Column(name="billing_period", nullable=false, length=7)
-    private String billing_period;
+    private String billingPeriod; // Format: "YYYY-MM"
 
     @Column(name="paid_at", nullable=false)
     private Instant paidAt;
@@ -46,7 +48,7 @@ public class BillingRecord {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable=false)
-    private Source source;
+    private DataSource source;
 
     @Column(name="created_at", nullable=false, updatable=false)
     private Instant createdAt;
