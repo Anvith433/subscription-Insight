@@ -10,8 +10,7 @@ spring:
 
   jpa:
     hibernate:
-      # CHANGE THIS: Change 'update' to 'validate' 
-      # This forces Hibernate to wait for Flyway to create the tables first.
+     
       ddl-auto: validate  
     show-sql: true
     properties:
@@ -32,3 +31,8 @@ spring:
 logging:
   level:
     org.flywaydb: DEBUG
+
+jwt:
+  
+  secret: "mysecretkey123456_must_be_at_least_32_characters_long"
+  expiration: 36000000
