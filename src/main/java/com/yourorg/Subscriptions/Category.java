@@ -2,7 +2,15 @@ package com.yourorg.Subscriptions;
 
 public enum Category {
    OTT,
-   SaaS,
    CLOUD,
-   UTILITIES
+   VIDEO,
+   MUSIC,
+   UTILITIES,
+    EDUCATION,  
+   FINANCE,    
+    SOCIAL,     
+    SHOPPING,  
+    UTILITY,    
+    SYSTEM,     
+    DEVELOPMENT 
 }

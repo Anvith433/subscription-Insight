@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import java.math.BigDecimal;
 import java.time.Instant;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "subscriptions")
@@ -21,9 +22,10 @@ public class Subscription {
     @Column(name = "provider_name", nullable = false, length = 255)
     private String providerName;
 
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false, length = 50)
-    private Category category;
+   
+    
+    @Column(name = "package_name", nullable = false, length = 255)
+    private String packageName;
 
     @Column(name = "start_date", nullable = false)
     private LocalDate startDate;
@@ -31,6 +33,10 @@ public class Subscription {
     @Enumerated(EnumType.STRING)
     @Column(name = "renewal_cycle", nullable = false, length = 20)
     private Renewal_Cycle renewalCycle;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name="Category", nullable=false, length=50)
+    private Category category;
 
     @Column(name = "renewal_date", nullable = false)
     private LocalDate renewalDate;
@@ -52,29 +58,36 @@ public class Subscription {
     private Instant updatedAt;
 
    
-    protected Subscription() {
+    public Subscription() {
         
     }
 
     public Subscription(
+            long id,
             User user,
             String providerName,
             Category category,
+            String packageName,
             LocalDate startDate,
             Renewal_Cycle renewalCycle,
             LocalDate renewalDate,
             BigDecimal price,
-            String currency
+            String currency,
+            SubscriptionStatus status,
+            Instant createdAt,
+            Instant updatedAt
     ) {
+        this.id=id;
         this.user = user;
         this.providerName = providerName;
         this.category = category;
+        this.packageName = packageName;
         this.startDate = startDate;
         this.renewalCycle = renewalCycle;
         this.renewalDate = renewalDate;
         this.price = price;
         this.currency = currency;
-        this.status = SubscriptionStatus.Active;
+        this.status = SubscriptionStatus.ACTIVE;
         this.createdAt = Instant.now();
     }
 
@@ -94,6 +107,14 @@ public class Subscription {
 
     public Category getCategory() {
         return category;
+    }
+
+    public String getPackageName() {
+        return packageName;
+    }
+
+    public void setPackageName(String packageName) {
+        this.packageName = packageName;
     }
 
     public LocalDate getStartDate() {
@@ -164,8 +185,6 @@ public class Subscription {
     public void setUpdatedAt(Instant updatedAt) {
         this.updatedAt = updatedAt;
     }
-   public String getPackageName() {
-        return providerName;
-    }
+  
     
 }
