@@ -1,8 +1,9 @@
 package com.yourorg.Recommendation;
 
 public enum Type {
-    CANCEL,
+    KEEP,      
+    CANCEL,     
+    CONSIDER,   
     DOWNGRADE,
-    OPTIMIZE
-    
+    UPGRADE
 }

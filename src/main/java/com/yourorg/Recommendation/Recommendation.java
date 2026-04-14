@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import com.yourorg.Users.User;
 import com.yourorg.Subscriptions.Subscription;
 import java.time.Instant;
+import java.math.BigDecimal;
 @Entity
 @Table(name="recommendations")
 @Getter
@@ -35,8 +36,8 @@ public class Recommendation {
    @Column(name="reason", length=100)
    private String reason;
 
-   @Column(name="confidence_score", precision=5, scale=2)
-   private Double confidenceScore;
+   @Column(name="confidence_score", precision=10, scale=2)
+   private BigDecimal confidenceScore;
 
    @Enumerated(EnumType.STRING)
    @Column(name="status", nullable=false)
