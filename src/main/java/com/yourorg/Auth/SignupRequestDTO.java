@@ -7,7 +7,8 @@ public class SignupRequestDTO {
 
     public SignupRequestDTO() {}
 
-    public SignupRequestDTO(String username, String email, String password) {
+    public SignupRequestDTO(String username, String email, String password) 
+    {
         this.username = username;
         this.email = email;
         this.password = password;

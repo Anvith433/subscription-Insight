@@ -3,12 +3,13 @@ package com.yourorg.Auth;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import com.yourorg.Config.JwtService;
-import com.yourorg.Users.User; // Ensure this points to your User entity
-import com.yourorg.Users.UserRepository; // Ensure this points to your Repository
+import com.yourorg.Users.User; 
+import com.yourorg.Users.UserRepository; 
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.http.ResponseEntity;
+
 
 @RestController
 @RequestMapping("/api")
