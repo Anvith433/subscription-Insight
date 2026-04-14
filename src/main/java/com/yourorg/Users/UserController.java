@@ -15,7 +15,7 @@ public class UserController {
 
     @GetMapping("/users/{id}")
     public User getUserById(@PathVariable long id) {
-        return userService.findById(id);
+        return userService.findById(id).orElse(null);
     }
     @GetMapping("/users/email/{email}")
     public User getUserByEmail(@PathVariable String email) {

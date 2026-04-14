@@ -7,8 +7,7 @@ import java.util.*;
 public interface UserRepository extends JpaRepository<User, Long> {
     Optional<User> findByEmail(String email);
     Optional<User> findByUserName(String userName);
-    User save(User user);
-    User deleteById(int id);
-     User findById(long id);
+    Optional<User> findById(long id);
+  
     
 }

@@ -18,19 +18,14 @@ public class UserService {
     Optional<User> findByUserName(String userName) {
         return userRepository.findByUserName(userName);
     }
-
+    Optional<User> findById(long id) {
+        return userRepository.findById(id);
+    }
     User save(User user) {
         return userRepository.save(user);
     }
 
-    User deleteById(int id) {
-        return userRepository.deleteById(id);
-    }
-
-     User findById(long id) {
-        return userRepository.findById(id);
-    }
-
+ 
 
    
 }
