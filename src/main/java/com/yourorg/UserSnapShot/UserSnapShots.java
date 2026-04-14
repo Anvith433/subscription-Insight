@@ -29,8 +29,8 @@ public class UserSnapShots {
     @JoinColumn(name = "subscription_id", nullable = false)
     private Subscription subscription;
 
-    @Column(nullable = false, length = 7)
-    private String period; // YYYY-MM
+    @Column(nullable = false, length = 10)
+    private String period; // YYYY-MM-DD
 
     @Column(nullable = false)
     private int usageCount;
