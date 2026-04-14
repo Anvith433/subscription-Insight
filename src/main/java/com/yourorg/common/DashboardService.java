@@ -27,25 +27,25 @@ public class DashboardService {
     private RecommendationRepository recommendationRepo;
 
     public List<DashBoardResponseDTO> getDashboardData(Long userId) {
-        String currentPeriod = YearMonth.now().toString(); // e.g., "2026-04"
+        String currentPeriod = YearMonth.now().toString(); 
 
-        // 1. Get all subscriptions for the user
+       
         List<Subscription> subscriptions = subscriptionRepo.findByUserId(userId);
 
-      // 2. Map each subscription to a Dashboard DTO
+      
 return subscriptions.stream()
-    .<DashBoardResponseDTO>map(sub -> { // <--- Added Type Witness here
-        // Find usage for this specific subscription this month
+    .<DashBoardResponseDTO>map(sub -> { 
+       
         UserSnapShots snapshot = snapshotRepo
             .findBySubscriptionAndPeriod(sub, currentPeriod)
             .orElse(null);
 
-        // Find latest recommendation
+       
         Recommendation rec = recommendationRepo
             .findByUserIdAndSubscriptionId(userId, sub.getId())
             .orElse(null);
 
-        // Build the DTO
+       
         return DashBoardResponseDTO.builder()
             .providerName(sub.getProviderName())
             .packageName(sub.getPackageName())

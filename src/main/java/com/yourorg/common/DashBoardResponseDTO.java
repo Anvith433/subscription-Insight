@@ -22,7 +22,7 @@ public class DashBoardResponseDTO {
     private int usageMinutes;
     private String billingPeriod;
 
-    // From Recommendation
-    private String recommendationType; // KEEP, CANCEL, CONSIDER
+   
+    private String recommendationType; 
     private String reason;
 }
