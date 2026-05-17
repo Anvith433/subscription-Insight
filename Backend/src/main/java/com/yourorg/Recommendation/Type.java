@@ -5,5 +5,10 @@ public enum Type {
     CANCEL,     
     CONSIDER,   
     DOWNGRADE,
+<<<<<<< HEAD
     UPGRADE
+=======
+    KEEP
+    
+>>>>>>> 75be6cf (Subscription-analytics)
 }

@@ -98,7 +98,14 @@ public class User {
     {
         this.createdAt=createdAt;
     }
-    // Getters and Setters
+
+    public Instant getLastLoginAt() {
+        return lastLoginAt;
+    }
+
+    public void setLastLoginAt(Instant lastLoginAt) {
+        this.lastLoginAt = lastLoginAt;
+    }
 
 
     

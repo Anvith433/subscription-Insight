@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Usage Tracker</title>
+    <style>
+      body {
+        font-family: Segoe UI, Tahoma, sans-serif;
+        margin: 0;
+        padding: 12px;
+        width: 320px;
+        background: #111827;
+        color: #e5e7eb;
+      }
+      h1 {
+        font-size: 14px;
+        margin: 0 0 10px;
+      }
+      .field {
+        margin-bottom: 10px;
+      }
+      label {
+        display: block;
+        font-size: 11px;
+        margin-bottom: 4px;
+        color: #9ca3af;
+      }
+      input {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 8px;
+        border-radius: 6px;
+        border: 1px solid #374151;
+        background: #1f2937;
+        color: #e5e7eb;
+      }
+      button {
+        width: 100%;
+        margin-top: 8px;
+        padding: 8px;
+        border: 0;
+        border-radius: 6px;
+        background: #2563eb;
+        color: #fff;
+        cursor: pointer;
+      }
+      ul {
+        margin: 10px 0 0;
+        padding: 0;
+        list-style: none;
+      }
+      li {
+        display: flex;
+        justify-content: space-between;
+        font-size: 12px;
+        border-bottom: 1px solid #1f2937;
+        padding: 6px 0;
+      }
+      .status {
+        margin-top: 8px;
+        font-size: 11px;
+        color: #93c5fd;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Subscription Usage Tracker</h1>
+
+    <div class="field">
+      <label for="backendUrl">Backend URL</label>
+      <input id="backendUrl" type="text" placeholder="http://localhost:8081" />
+    </div>
+
+    <div class="field">
+      <label for="authToken">Auth Token (JWT)</label>
+      <input id="authToken" type="text" placeholder="Paste token from app login" />
+    </div>
+
+    <div class="field">
+      <label for="email">Email</label>
+      <input id="email" type="email" placeholder="you@example.com" />
+    </div>
+
+    <div class="field">
+      <label for="password">Password</label>
+      <input id="password" type="password" placeholder="Your password" />
+    </div>
+
+    <button id="saveBtn">Save Settings</button>
+    <button id="loginBtn" type="button">Login & Save Token</button>
+    <button id="syncBtn" type="button">Sync Now</button>
+    <div class="status" id="status"></div>
+
+    <ul id="usageList"></ul>
+
+    <script src="popup.js"></script>
+  </body>
+</html>

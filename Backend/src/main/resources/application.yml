@@ -1,15 +1,28 @@
+<<<<<<< HEAD
+=======
+server:
+  port: ${SERVER_PORT:8081}
+
+>>>>>>> 75be6cf (Subscription-analytics)
 spring:
   application:
     name: subscriptions-backend
 
   datasource:
+<<<<<<< HEAD
     url: jdbc:mysql://localhost:3306/subscription_db?serverTimezone=Asia/Kolkata&useSSL=false&allowPublicKeyRetrieval=true
     username: postgres
     password: postgres
+=======
+    url: ${DB_URL:jdbc:mysql://localhost:3306/subscription_backend?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC}
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:root}
+>>>>>>> 75be6cf (Subscription-analytics)
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
     hibernate:
+<<<<<<< HEAD
      
       ddl-auto: validate  
     show-sql: true
@@ -18,10 +31,15 @@ spring:
         dialect: org.hibernate.dialect.MySQLDialect
         jdbc:
           time_zone: Asia/Kolkata
+=======
+      ddl-auto: update
+    packages-to-scan: com.yourorg
+>>>>>>> 75be6cf (Subscription-analytics)
 
   flyway:
     enabled: true
     baseline-on-migrate: true
+<<<<<<< HEAD
     repair-on-migrate: true 
     locations: classpath:db/migration
     user: ${spring.datasource.username}
@@ -36,3 +54,16 @@ jwt:
   
   secret: "mysecretkey123456_must_be_at_least_32_characters_long"
   expiration: 36000000
+=======
+
+cloudinary:
+  cloud-name: ${CLOUDINARY_CLOUD_NAME:}
+  api-key: ${CLOUDINARY_API_KEY:}
+  api-secret: ${CLOUDINARY_API_SECRET:}
+  folder: ${CLOUDINARY_FOLDER:subscription-csv}
+
+app:
+  auth:
+    jwt-secret: ${JWT_SECRET:U3Vic2NyaXB0aW9uQmFja2VuZFNlY3JldEtleUZvclN0YWdlQW5kRGV2TW9kZQ==}
+    jwt-expiration-minutes: ${JWT_EXPIRATION_MINUTES:1440}
+>>>>>>> 75be6cf (Subscription-analytics)

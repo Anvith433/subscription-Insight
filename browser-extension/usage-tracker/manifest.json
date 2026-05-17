@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "Subscription Usage Tracker",
+  "version": "1.0.0",
+  "description": "Tracks time spent on subscription websites and sends usage to backend.",
+  "permissions": ["tabs", "storage", "alarms", "idle"],
+  "host_permissions": [
+    "http://localhost:8081/*",
+    "http://127.0.0.1:8081/*",
+    "http://localhost:8082/*",
+    "http://127.0.0.1:8082/*",
+    "https://www.netflix.com/*",
+    "https://open.spotify.com/*",
+    "https://www.youtube.com/*",
+    "https://music.youtube.com/*",
+    "https://www.primevideo.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Usage Tracker"
+  }
+}

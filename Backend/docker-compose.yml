@@ -2,11 +2,16 @@ version: "3.9"
 
 services:
   mysql:
+<<<<<<< HEAD
     image: mysql:8.0
+=======
+    image: mysql:8.4
+>>>>>>> 75be6cf (Subscription-analytics)
     container_name: subscription-mysql
     ports:
       - "3306:3306"
     environment:
+<<<<<<< HEAD
       MYSQL_DATABASE: subscription_db
       MYSQL_USER: postgres      # You can keep 'postgres' as the username, but 'root' is MySQL default
       MYSQL_PASSWORD: postgres
@@ -17,10 +22,21 @@ services:
     healthcheck:
       # MySQL uses mysqladmin for healthchecks
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-ppostgres"]
+=======
+      MYSQL_DATABASE: subscription_backend
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: app
+      MYSQL_PASSWORD: app
+    volumes:
+      - mysqldata:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-proot"]
+>>>>>>> 75be6cf (Subscription-analytics)
       interval: 5s
       timeout: 5s
       retries: 5
 
+<<<<<<< HEAD
       flyway:
     enabled: true
     baseline-on-migrate: true
@@ -29,5 +45,7 @@ services:
     user: ${spring.datasource.username}
     password: ${spring.datasource.password}
 
+=======
+>>>>>>> 75be6cf (Subscription-analytics)
 volumes:
   mysqldata:

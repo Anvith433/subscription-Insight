@@ -1,6 +1,7 @@
 package com.yourorg.Subscriptions;
 
 public enum Category {
+<<<<<<< HEAD
    OTT,
    CLOUD,
    VIDEO,
@@ -13,4 +14,14 @@ public enum Category {
     UTILITY,    
     SYSTEM,     
     DEVELOPMENT 
+=======
+   STREAMING,
+   MUSIC,
+   CLOUD,
+   PRODUCTIVITY,
+   GAMING,
+   FITNESS,
+   NEWS,
+   OTHER
+>>>>>>> 75be6cf (Subscription-analytics)
 }

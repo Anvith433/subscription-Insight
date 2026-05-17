@@ -1,0 +1,25 @@
+server:
+  port: 0
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:subscription_test;MODE=MySQL;DB_CLOSE_DELAY=-1;DATABASE_TO_UPPER=false
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+  jpa:
+    hibernate:
+      ddl-auto: none
+  flyway:
+    enabled: true
+
+app:
+  auth:
+    jwt-secret: VGVzdEp3dFNlY3JldEtleUZvclN1YnNjcmlwdGlvbkJhY2tlbmRUZXN0cw==
+    jwt-expiration-minutes: 1440
+
+cloudinary:
+  cloud-name:
+  api-key:
+  api-secret:
+  folder: subscription-csv-test
